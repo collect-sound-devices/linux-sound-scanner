@@ -31,7 +31,6 @@ Linux Sound Scanner (LinuxSoundScanner) monitors audio devices under Linux and p
 3. Install the latest version of the RMQ to REST API Forwarder by following the instructions in
    [rmq-to-rest-api-forwarder](https://github.com/collect-sound-devices/rmq-to-rest-api-forwarder/).
 
-
 ## Developer Build
 
 ### Requirements
@@ -76,7 +75,7 @@ Linux Sound Scanner (LinuxSoundScanner) monitors audio devices under Linux and p
 3. Project > Delete CMake Cache and Reconfigure
 4. Build > Build All
 
-The output executable will be located in `/home/<User>/.vs/linux-sound-scanner/out/build/<configuration>'
+The output executable will be located in `/home/<User>/.vs/linux-sound-scanner/out/build/<configuration>`
 on WSL.
 
 
@@ -84,14 +83,16 @@ on WSL.
 
 ### Environment Variables
 
-- `TRANSPORT_METHOD` selects the transport mode. Supported values are `RabbitMQ` and `None`, the default is `RabbitMQ`
-<br><br>Set `TRANSPORT_METHOD` to `None`, if you want the scanner not top send requests to RabbitMQ but only log them:
+- `TRANSPORT_METHOD` selects the transport mode. Supported values are `RabbitMQ` and `None`; the default is `RabbitMQ`.
+
+  Set `TRANSPORT_METHOD` to `None` if you want the scanner to log requests without sending them to RabbitMQ:
    ```bash
    export TRANSPORT_METHOD=None
    ```
 
 - `RMQ_HOST` sets the RabbitMQ host name used by the scanner when `TRANSPORT_METHOD=RabbitMQ`, the default is `localhost`.
-<br><br>In [deploy-via-docker/docker-compose.yml](deploy-via-docker/docker-compose.yml), it is set to `rabbitmq` via the container environment.
+
+  In [deploy-via-docker/docker-compose.yml](deploy-via-docker/docker-compose.yml), it is set to `host.docker.internal` via the container environment.
 
 - `RMQ_USER` sets the RabbitMQ user name used by the scanner when `TRANSPORT_METHOD=RabbitMQ`, the default is `guest`.
 
@@ -119,4 +120,3 @@ This project is licensed under the terms of the [MIT License](LICENSE).
 Eduard Danziger
 
 Email: [edanziger@gmx.de](mailto:edanziger@gmx.de)
-
